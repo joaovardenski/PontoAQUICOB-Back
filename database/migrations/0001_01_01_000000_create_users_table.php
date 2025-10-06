@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('cpf', 14)->unique();
             $table->string('cargo')->nullable();
-            $table->unsignedTinyInteger('carga_horaria')->default(8);
+            $table->unsignedTinyInteger('carga_horaria')->nullable();
             $table->enum('tipo_usuario', ['admin', 'funcionario'])->default('funcionario');
             $table->string('password');
             $table->timestamps();

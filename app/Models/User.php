@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -26,11 +27,12 @@ class User extends Authenticatable
 
     protected $casts = [
         'carga_horaria' => 'integer',
+        'tipo_usuario' => 'string',
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
-    public function registrosPonto()
+    public function registrosPonto(): HasMany
     {
         return $this->hasMany(RegistroPonto::class, 'funcionario_id');
     }

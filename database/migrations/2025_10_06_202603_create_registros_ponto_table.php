@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('funcionario_id');
             $table->dateTime('datahora');
-            $table->enum('tipo', ['Entrada', 'Pausa', 'Saída']);
+            $table->enum('tipo', ['entrada', 'pausa', 'saida']);
 
             $table->foreign('funcionario_id')->references('id')->on('users')->onDelete('cascade');
         });

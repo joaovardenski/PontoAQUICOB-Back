@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegistroPontoController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
@@ -10,6 +11,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/me', [AuthController::class, 'me']);
 });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/pontos', [RegistroPontoController::class, 'registrar']);
+    Route::get('/pontos/me', [RegistroPontoController::class, 'meusPontosDoDia']);
+    Route::get('/pontos/{funcionarioId}', [RegistroPontoController::class, 'pontosFuncionario']);
+});
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/funcionarios', [UserController::class, 'index']);

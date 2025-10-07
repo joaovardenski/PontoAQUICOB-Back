@@ -65,8 +65,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
-
+    'timezone' => 'America/Sao_Paulo',
+    'db_timezone' => env('DB_TIMEZONE', '+00:00'),
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

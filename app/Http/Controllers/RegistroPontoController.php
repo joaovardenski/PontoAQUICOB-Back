@@ -39,6 +39,7 @@ class RegistroPontoController extends Controller
             'data_fim' => 'required|date|after_or_equal:data_inicio',
         ]);
 
+
         $user = Auth::user();
 
         if (!$user) {
